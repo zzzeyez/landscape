@@ -1,0 +1,19 @@
+refreshFrequency: false
+
+render: () ->
+  return '''
+    <link rel="stylesheet" type="text/css" href="/landscape/landscape.css" />
+		<div class="screen">
+      <div class="landscape">
+        <ul>
+          <li class="ls1"></li>
+          <li class="ls2"></li>
+          <li class="ls3"></li>
+          <li class="ls4"></li>
+          <li class="ls5"></li>
+          <li class="ls6"></li>
+          <li class="ls7"></li>
+        </ul>
+      </div>
+    </div>
+  '''

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+# author: daniel neemann (@zzzeyez)
+#
+# displays notifications on macos
+# requires `ubersicht`
+
+setup() {
+	SOURCE="${BASH_SOURCE[0]}"
+	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+		DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+		SOURCE="$(readlink "$SOURCE")"
+		[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	dir="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+	cache="$dir/.cache"
+  wstotal="$(/usr/local/bin/yabai -m query --spaces | grep 'index' | wc -l | sed 's/[^0-9]*//g')"
+  ws="$(/usr/local/bin/yabai -m query --spaces --space | grep index | sed 's/[^0-9]*//g')"
+	if [[ ! -d "$cache" ]] ; then
+		mkdir "$cache"
+	fi
+	# check if ubersicht is running
+	ps cax | grep sicht > /dev/null
+	if [ $? -eq 0 ]; then
+		# stupid umlaut character
+		ubersicht="$(ps ax | grep sicht | awk '{print $5}' | head -1 | cut -d/ -f3 | cut -d. -f1)"
+		if [[ "$ubersicht" = "UM-LM^Hbersicht" ]] ; then
+			ubersicht="Übersicht"
+		fi		
+	fi
+}
+
+refresh() {
+	if [[ "$ubersicht" ]] ; then
+		osascript -e 'tell application "'$ubersicht'" to refresh widget id "'$1'"'
+	fi
+}
+
+main() {
+  echo "ws $ws wstotal; $wstotal"
+  screencapture -x "$cache/$ws.png"
+  cp "$dir/workspaces/$wstotal" "$dir/landscape.coffee"
+  refresh "landscape-landscape-coffee"
+}
+
+setup
+main

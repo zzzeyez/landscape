@@ -1,0 +1,75 @@
+/* landscape is a workspace switcher for macos */
+/* written by daniel neemann (@zzzeyez) */
+
+:root {
+  --height-landscape: 36px;
+	--width-landscape: calc(var(--height-landscape) * 1.6);
+  --margin-landscape: 0px;
+  --border-landscape: 0px;
+  --background-landscape: #000000dd;
+}
+
+/* Get monitor width */
+.screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.landscape {
+  height: var(--height-landscape);
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  background: var(--background-landscape);
+  display: block;
+  position: absolute;
+  padding: var(--border-landscape);
+  margin: var(--margin-landscape);
+  border-radius: 0px;
+  z-index: 3;
+}
+
+.landscape ul {
+  height: var(--height-landscape);
+  padding: 0px;
+  margin: 0px;
+}
+
+.landscape li {
+  width: var(--width-landscape);
+  height: var(--height-landscape);
+  float: left;
+  padding: 0px;
+  margin: 0 var(--border-landscape) 0 0;
+  list-style-type: none;
+  border-radius: 3px;
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.0);
+}
+
+.landscape li:last-child {
+  margin-left: 0px;
+}
+
+.landscape li.ls1 {
+  background: url("/landscape/.cache/1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls2 {
+	outline: 3px solid var(--color1);
+	outline-offset: -3px;
+  background: url("/landscape/.cache/2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls3 {
+  background: url("/landscape/.cache/3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
