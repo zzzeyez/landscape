@@ -1,6 +1,6 @@
 # landscape
 
-![Screenshot](/screenshots.png)
+![Screenshot](/screenshot.png)
 
 A bar for macos that displays the current workspaces.  Work in progress and currently not ready for use.
 
