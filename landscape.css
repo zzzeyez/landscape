@@ -1,9 +1,15 @@
 /* landscape is a workspace switcher for macos */
 /* written by daniel neemann (@zzzeyez) */
 
+@import url(.cache/current.css);
+
 :root {
-  --height-landscape: 36px;
+  --height-landscape: var(--height, 100px);
 	--width-landscape: calc(var(--height-landscape) * 1.6);
+  /*--landscape-width: calc(*/
+	/*var(--width-landscape) * 4 -*/
+	/*var(--text-padding) * 2 - 1ch*/
+	/*);*/
   --margin-landscape: 0px;
   --border-landscape: 0px;
   --background-landscape: #000000dd;
@@ -43,8 +49,8 @@
   padding: 0px;
   margin: 0 var(--border-landscape) 0 0;
   list-style-type: none;
-  border-radius: 3px;
-  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.0);
+  /*border-radius: 3px;*/
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0);
 }
 
 .landscape li:last-child {
@@ -52,23 +58,72 @@
 }
 
 .landscape li.ls1 {
-  background: url("/landscape/.cache/1.png");
+  background: url('/landscape/.cache/1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .landscape li.ls2 {
-	outline: 3px solid var(--color1);
-	outline-offset: -3px;
-  background: url("/landscape/.cache/2.png");
+  /*outline: 3px solid var(--color1);*/
+  /*outline-offset: -3px;*/
+  background: url('/landscape/.cache/2.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .landscape li.ls3 {
-  background: url("/landscape/.cache/3.png");
+  background: url('/landscape/.cache/3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls4 {
+  background: url('/landscape/.cache/4.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls5 {
+  background: url('/landscape/.cache/5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls6 {
+  background: url('/landscape/.cache/6.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls7 {
+  background: url('/landscape/.cache/7.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls8 {
+  background: url('/landscape/.cache/8.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls9 {
+  background: url('/landscape/.cache/9.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls10 {
+  background: url('/landscape/.cache/10.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

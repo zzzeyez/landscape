@@ -1,21 +1,31 @@
-refreshFrequency: false
+import { run } from 'uebersicht'
 
-render: () ->
-  return '''
-    <link rel="stylesheet" type="text/css" href="/landscape/landscape.css" />
-		<div class="screen">
-      <div class="landscape">
-        <ul>
-          <li class="ls1"></li>
-          <li class="ls2"></li>
-          <li class="ls3"></li>
-          <li class="ls4"></li>
-          <li class="ls5"></li>
-          <li class="ls6"></li>
-          <li class="ls7"></li>
-          <li class="ls8"></li>
-          <li class="ls9"></li>
-        </ul>
-      </div>
-    </div>
-  '''
+const refreshFrequency = false;
+
+function createSpace(ws) {
+	run(`/usr/local/bin/yabai -m space --focus ${ws} && /usr/local/bin/landscape`)
+}
+
+const render = () => {
+	return (
+	<div class="screen">
+		<link rel="stylesheet" type="text/css" href="/landscape/landscape.css" />
+		<div class="landscape">
+			<ul>
+				<li class="ls1" onClick={function() { createSpace(1) } }></li>
+				<li class="ls2" onClick={function() { createSpace(2) } }></li>
+				<li class="ls3" onClick={function() { createSpace(3) } }></li>
+				<li class="ls4" onClick={function() { createSpace(4) } }></li>
+				<li class="ls5" onClick={function() { createSpace(5) } }></li>
+				<li class="ls6" onClick={function() { createSpace(6) } }></li>
+				<li class="ls7" onClick={function() { createSpace(7) } }></li>
+				<li class="ls8" onClick={function() { createSpace(8) } }></li>
+				<li class="ls9" onClick={function() { createSpace(9) } }></li>
+			</ul>
+		</div>
+	</div>
+	)
+};
+
+export { refreshFrequency, render };
+

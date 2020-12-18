@@ -1,13 +1,23 @@
-refreshFrequency: false
+import { run } from 'uebersicht'
 
-render: () ->
-  return '''
-    <link rel="stylesheet" type="text/css" href="/landscape/landscape.css" />
-		<div class="screen">
-      <div class="landscape">
-        <ul>
-          <li class="ls1"></li>
-        </ul>
-      </div>
-    </div>
-  '''
+const refreshFrequency = false;
+
+function createSpace(ws) {
+	run(`/usr/local/bin/yabai -m space --focus ${ws} && /usr/local/bin/landscape`)
+}
+
+const render = () => {
+	return (
+	<div class="screen">
+		<link rel="stylesheet" type="text/css" href="/landscape/landscape.css" />
+		<div class="landscape">
+			<ul>
+				<li class="ls1" onClick={function() { createSpace(1) } }></li>
+			</ul>
+		</div>
+	</div>
+	)
+};
+
+export { refreshFrequency, render };
+
