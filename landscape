@@ -57,7 +57,7 @@ refresh() {
 main() {
 	screencapture -x "$cache/$ws.png"
 	cp "$dir/workspaces/$wstotal" "$dir/landscape.jsx"
-	echo ":root { --wstotal: $wstotal; --landscape-width: calc( var(--height) * 1.6 * var(--wstotal) - var(--text-padding) * 2 - 1ch ); } .landscape li.ls$ws { outline: 3px solid var(--color1, #fff); outline-offset: -3px; }" > "$cache/current.css"
+	echo ":root { --wstotal: $wstotal; } .landscape li.ls$ws { box-shadow: inset 0 0 0 2px var(--color1, #fff); }" > "$cache/current.css"
 	refresh landscape-landscape-jsx
 		#osascript -e 'tell application "'$ubersicht'" to refresh widget id "'landscape-landscape-jsx'"'
 }
