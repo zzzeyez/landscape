@@ -15,7 +15,7 @@ This can be done via the terminal like so:
 ```sh
 brew tap caskroom/cask
 brew cask install ubersicht
-git clone https://github.com/zzzeyez/pecan.git "$HOME/Library/Application Support/Übersicht/widgets/pecan"
+git clone https://github.com/zzzeyez/landscape.git "$HOME/Library/Application Support/Übersicht/widgets/landscape"
 ```
 
 And install *Yabai*:
